@@ -1,5 +1,0 @@
-C:/Users/1000304444/Desktop/New folder/Prac/C++/Car/build/CMakeFiles/CarSimulator.dir
-C:/Users/1000304444/Desktop/New folder/Prac/C++/Car/build/CMakeFiles/CarTests.dir
-C:/Users/1000304444/Desktop/New folder/Prac/C++/Car/build/CMakeFiles/test.dir
-C:/Users/1000304444/Desktop/New folder/Prac/C++/Car/build/CMakeFiles/edit_cache.dir
-C:/Users/1000304444/Desktop/New folder/Prac/C++/Car/build/CMakeFiles/rebuild_cache.dir
