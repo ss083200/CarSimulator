@@ -55,11 +55,11 @@ void Car::update(double deltaTime) {
 
         // Boundary checks
         sf::Vector2f position = shape.getPosition();
-        if (position.x < 0) position.x = 0; // Left boundary
-        else if (position.x > 800) position.x = 800; // Right boundary
-        if (position.y < 0) position.y = 0; // Top boundary
-        else if (position.y > 600) position.y = 600; // Bottom boundary
-        shape.setPosition(position); // Update position
+        if (position.x < 0) position.x = 0;
+        else if (position.x > 800) position.x = 800;
+        if (position.y < 0) position.y = 0;
+        else if (position.y > 600) position.y = 600;
+        shape.setPosition(position);
     }
 }
 

@@ -28,4 +28,4 @@ private:
     static constexpr double friction = 5.0;  // Friction coefficient
 };
 
-#endif // CAR_HPP
+#endif

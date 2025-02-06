@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include "Car.hpp"
 
+// Test for starting and stopping the car
 TEST(CarTest, StartAndStop) {
     Car car;
     car.start();
@@ -9,6 +10,7 @@ TEST(CarTest, StartAndStop) {
     EXPECT_FALSE(car.isRunning());
 }
 
+// Test for proper speed changes
 TEST(CarTest, SpeedChange) {
     Car car;
     car.start();
@@ -18,6 +20,7 @@ TEST(CarTest, SpeedChange) {
     EXPECT_EQ(car.getSpeed(), 2.0);
 }
 
+// Test for speed not going below 0
 TEST(CarTest, SpeedNotBelowZero) {
     Car car;
     car.start();
@@ -26,6 +29,7 @@ TEST(CarTest, SpeedNotBelowZero) {
     EXPECT_EQ(car.getSpeed(), 0.0);
 }
 
+// Test for turning behavior
 TEST(CarTest, TurningBehavior) {
     Car car;
     car.start();
