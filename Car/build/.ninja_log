@@ -1,0 +1,5 @@
+# ninja log v6
+54	8165	7605508859723032	CMakeFiles/CarSimulator.dir/src/Car.cpp.obj	fd4285aaa3393d8a
+39	8191	7605508859576548	CMakeFiles/CarSimulator.dir/src/main.cpp.obj	142932d21a623f1b
+70	8227	7605508859883325	CMakeFiles/CarTests.dir/src/Car.cpp.obj	89d43e30c7c7c9e3
+62	9620	7605508859808255	CMakeFiles/CarTests.dir/tests/test_car.cpp.obj	424235700e30f541
