@@ -3,54 +3,63 @@
 #include <cmath>
 #include <iostream>
 
-Car::Car() : speed(0), direction(0), isRunning(false) {
+Car::Car() : speed(0), direction(0), runningState(false) {
     shape.setSize(sf::Vector2f(50, 30));
     shape.setFillColor(sf::Color::Blue);
     shape.setOrigin(sf::Vector2f(25.f, 15.f));
+    shape.setPosition(400, 300); // Set initial position to center
 }
 
 void Car::start() {
-    isRunning = true;
+    runningState = true;
 }
 
 void Car::stop() {
-    isRunning = false;
+    runningState = false;
     speed = 0;
 }
 
 void Car::accelerate(double amount) {
-    if (isRunning) {
+    if (runningState) {
         speed = std::min(speed + amount, maxSpeed);
     }
 }
 
 void Car::decelerate(double amount) {
-    if (isRunning) {
+    if (runningState) {
         speed = std::max(speed - amount, 0.0);
     }
 }
 
 void Car::turn(double angle) {
     direction += angle;
-    direction = std::fmod(direction, 360.0);
-    if (direction < 0) direction += 360.0;
+    if (direction >= 360) direction -= 360;
+    if (direction < 0) direction += 360;
     shape.setRotation(static_cast<float>(direction));
 }
 
 void Car::applyFriction(double deltaTime) {
-    if (isRunning && speed > 0) {
+    if (runningState && speed > 0) {
         speed = std::max(speed - friction * deltaTime, 0.0);
     }
 }
 
 void Car::update(double deltaTime) {
     applyFriction(deltaTime);
-    if (isRunning) {
-        float radians = direction * static_cast<float>(M_PI) / 180.0f;
+    if (runningState) {
+        float radians = direction * (M_PI / 180.0f);
         shape.move(
             static_cast<float>(speed * cos(radians) * deltaTime), 
             static_cast<float>(speed * sin(radians) * deltaTime)
         );
+
+        // Boundary checks
+        sf::Vector2f position = shape.getPosition();
+        if (position.x < 0) position.x = 0; // Left boundary
+        else if (position.x > 800) position.x = 800; // Right boundary
+        if (position.y < 0) position.y = 0; // Top boundary
+        else if (position.y > 600) position.y = 600; // Bottom boundary
+        shape.setPosition(position); // Update position
     }
 }
 
@@ -68,4 +77,8 @@ double Car::getSpeed() const {
 
 double Car::getDirection() const {
     return direction;
+}
+
+bool Car::isRunning() const {
+    return runningState;
 }

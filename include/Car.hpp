@@ -17,11 +17,12 @@ public:
     sf::RectangleShape& getShape();
     double getSpeed() const;
     double getDirection() const;
+    bool isRunning() const;
 
 private:
     double speed;
     double direction;
-    bool isRunning;
+    bool runningState;
     sf::RectangleShape shape;
     static constexpr double maxSpeed = 200.0; // Max speed in km/h
     static constexpr double friction = 5.0;  // Friction coefficient

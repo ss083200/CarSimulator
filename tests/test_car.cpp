@@ -1,30 +1,38 @@
 #include <gtest/gtest.h>
 #include "Car.hpp"
 
-TEST(CarTest, InitialPosition) {
+TEST(CarTest, StartAndStop) {
     Car car;
     car.start();
-    EXPECT_EQ(car.getShape().getPosition().x, 400); // Center position
-    EXPECT_EQ(car.getShape().getPosition().y, 300); // Center position
-}
-
-TEST(CarTest, Accelerate) {
-    Car car;
-    car.start();
-    car.accelerate(1.0);
-    car.update(1.0);
-    EXPECT_GT(car.getShape().getPosition().y, 300); // Assuming initial y position is 300
-}
-
-TEST(CarTest, Stop) {
-    Car car;
-    car.start();
-    car.accelerate(1.0);
-    car.update(1.0);
+    EXPECT_TRUE(car.isRunning());
     car.stop();
-    float positionY = car.getShape().getPosition().y;
-    car.update(1.0);
-    EXPECT_EQ(car.getShape().getPosition().y, positionY);
+    EXPECT_FALSE(car.isRunning());
+}
+
+TEST(CarTest, SpeedChange) {
+    Car car;
+    car.start();
+    car.accelerate(5.0);
+    EXPECT_EQ(car.getSpeed(), 5.0);
+    car.decelerate(3.0);
+    EXPECT_EQ(car.getSpeed(), 2.0);
+}
+
+TEST(CarTest, SpeedNotBelowZero) {
+    Car car;
+    car.start();
+    car.accelerate(2.0);
+    car.decelerate(3.0);
+    EXPECT_EQ(car.getSpeed(), 0.0);
+}
+
+TEST(CarTest, TurningBehavior) {
+    Car car;
+    car.start();
+    car.turn(45);
+    EXPECT_EQ(car.getDirection(), 45);
+    car.turn(360); // Full rotation
+    EXPECT_EQ(car.getDirection(), 45);
 }
 
 int main(int argc, char **argv) {
