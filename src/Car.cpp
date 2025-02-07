@@ -1,6 +1,4 @@
 /*
- * File: Car.cpp
- * Author: Your Name
  * Description: This file contains the implementation of the Car class,
  *              which simulates a car's behavior in a driving simulation.
  *              It includes methods for start, stop, acceleration, deceleration, 
