@@ -1,3 +1,12 @@
+/*
+ * File: Car.cpp
+ * Author: Your Name
+ * Description: This file contains the implementation of the Car class,
+ *              which simulates a car's behavior in a driving simulation.
+ *              It includes methods for start, stop, acceleration, deceleration, 
+ *              turning etc.
+ */
+
 #include "Car.hpp"
 #include <algorithm>
 #include <cmath>
@@ -48,6 +57,7 @@ void Car::turn(double angle) {
     shape.setRotation(static_cast<float>(direction));
 }
 
+ // Applies friction to the car's speed to simulate deceleration over time
 void Car::applyFriction(double deltaTime) {
     if (isRunning && speed > 0) {
         speed = std::max(speed - friction * deltaTime, 0.0);
@@ -106,7 +116,7 @@ bool Car::getIsRunning() const {
     return isRunning;
 }
 
-// Handle user inputs coming from Keyboard presses
+// Handles user inputs from keyboard presses to control the car's behavior
 void Car::handleInput(sf::RenderWindow& window) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         accelerate(1.0);
