@@ -5,9 +5,9 @@
 TEST(CarTest, StartAndStop) {
     Car car;
     car.start();
-    EXPECT_TRUE(car.isRunning());
+    EXPECT_TRUE(car.getIsRunning());
     car.stop();
-    EXPECT_FALSE(car.isRunning());
+    EXPECT_FALSE(car.getIsRunning());
 }
 
 // Test for proper speed changes
