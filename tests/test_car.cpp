@@ -35,7 +35,7 @@ TEST(CarTest, TurningBehavior) {
     car.start();
     car.turn(45);
     EXPECT_EQ(car.getDirection(), 45);
-    car.turn(360); // Full rotation
+    car.turn(360);
     EXPECT_EQ(car.getDirection(), 45);
 }
 
