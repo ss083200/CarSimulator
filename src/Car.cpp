@@ -11,11 +11,14 @@
 #include <iostream>
 
 // Constructor for initialization
-Car::Car() : speed(0), direction(0), isRunning(false) {
+Car::Car() {
+    speed = 0;
+    direction = 0;
+    isRunning = false;
     shape.setSize(sf::Vector2f(50, 30));
     shape.setFillColor(sf::Color::Blue);
     shape.setOrigin(sf::Vector2f(25.f, 15.f));
-    shape.setPosition(400, 300); // Set initial position to center
+    shape.setPosition(400, 300);
 }
 
 // Starts the car's engine
